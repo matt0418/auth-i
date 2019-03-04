@@ -9,6 +9,7 @@ const Users = require('../userRoutes/helperFunctions')
 const registerRouter = require('../userRoutes/registerRoutes')
 const loginRouter = require('../userRoutes/loginRoutes')
 const userRouter = require('../userRoutes/userRoutes')
+const testRoute = require('../userRoutes/restrictedTestRoutes')
 
 const server = express()
 
@@ -38,5 +39,6 @@ server.use(cors())
 server.use('/api/register', registerRouter)
 server.use('/api/login', loginRouter)
 server.use('/api/users', restricted, userRouter)
+server.use('/api/restricted', restricted, testRoute)
 
 module.exports = server
