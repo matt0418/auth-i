@@ -1,11 +1,14 @@
+//core dependencies
 const express = require('express')
 const helmet = require('helmet')
 const cors = require('cors')
-
 const bcrypt = require('bcryptjs')
 // const router = require('express').Router()
+
+//Bring in Helper Functions with access to DB
 const Users = require('../userRoutes/helperFunctions')
 
+//Imported Routes
 const registerRouter = require('../userRoutes/registerRoutes')
 const loginRouter = require('../userRoutes/loginRoutes')
 const userRouter = require('../userRoutes/userRoutes')
@@ -13,6 +16,7 @@ const testRoute = require('../userRoutes/restrictedTestRoutes')
 
 const server = express()
 
+// Restricted Access function middleware
 async function restricted(req, res, next) {
     const {username, password} = req.headers
     if (username && password) {

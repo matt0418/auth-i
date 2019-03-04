@@ -2,9 +2,13 @@ const bcrypt = require('bcryptjs')
 const router = require('express').Router()
 const Users = require('./helperFunctions')
 
+//Test Route
 // router.get('/', (req, res) => {
 //     res.send({message: "more work"})
 // })
+
+
+// Get users route with specific use of a restricted element instead of middleware
 
 // router.get('/', async (req, res) => {
 //     let { username, password } = req.headers
@@ -26,6 +30,7 @@ const Users = require('./helperFunctions')
 //     }
 // })
 
+//Route that uses middleware
 router.get('/', async (req, res) => {
    try {
        const users = await Users.find()

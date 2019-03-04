@@ -2,10 +2,12 @@ const bcrypt = require('bcryptjs')
 const router = require('express').Router()
 const Users = require('./helperFunctions')
 
+// Test route
 router.get('/', (req, res) => {
     res.send({message: "im working on login"})
 })
 
+//"login" ability
 router.post('/', async (req, res) => {
     let { username, password } = req.body
     try {
