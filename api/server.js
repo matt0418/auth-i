@@ -36,6 +36,7 @@ const registerRouter = require('../userRoutes/registerRoutes')
 const loginRouter = require('../userRoutes/loginRoutes')
 const userRouter = require('../userRoutes/userRoutes')
 const testRoute = require('../userRoutes/restrictedTestRoutes')
+const logoutRoute = require('../userRoutes/logoutRoutes')
 
 const server = express()
 
@@ -78,5 +79,6 @@ server.use('/api/register', registerRouter)
 server.use('/api/login', loginRouter)
 server.use('/api/users', restricted, userRouter)
 server.use('/api/restricted', restricted, testRoute)
+server.use('/api/logout', logoutRoute)
 
 module.exports = server
