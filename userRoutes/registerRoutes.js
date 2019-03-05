@@ -14,6 +14,7 @@ router.post('/', async (req, res) => {
     user.password = hash
     try {
         const uuser = await Users.add(user)
+        req.session.username = uuser.username
         res.status(201).json(uuser)
     } catch(error) {
         console.log(error)
