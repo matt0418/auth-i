@@ -13,6 +13,7 @@ router.post('/', async (req, res) => {
     try {
         const user = await Users.findBy({ username }).first()
         if (user && bcrypt.compareSync(password, user.password)) {
+            req.session.username = user.username
             res.status(200).json({ message: `${user.username} is logged in` })
         } else {
             res.status(401).json({ message: '* Angry Wizard Noises *' })
